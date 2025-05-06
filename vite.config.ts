@@ -1,23 +1,28 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import { viteStaticCopy } from 'vite-plugin-static-copy'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
+import eslintPlugin from '@nabla/vite-plugin-eslint';
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), viteStaticCopy({
-    targets: [
-      {
-        src: 'manifest.json',
-        dest: '.',
-      }
-    ],
-  }),],
+  plugins: [
+    react(),
+    eslintPlugin(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'manifest.json',
+          dest: '.',
+        },
+      ],
+    }),
+  ],
   build: {
     outDir: 'dist',
     rollupOptions: {
       input: {
         index: './index.html',
-        background: './src/background.ts'
+        background: './src/background.ts',
       },
       output: {
         entryFileNames: (chunkInfo) => {
@@ -27,8 +32,8 @@ export default defineConfig({
           }
           // for index page, use default output naming scheme
           return 'assets/[name]-[hash].js';
-        }
-      }
+        },
+      },
     },
   },
-})
+});
