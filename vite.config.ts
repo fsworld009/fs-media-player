@@ -16,8 +16,19 @@ export default defineConfig({
     outDir: 'dist',
     rollupOptions: {
       input: {
-        main: './index.html',
+        index: './index.html',
+        background: './src/background.ts'
       },
+      output: {
+        entryFileNames: (chunkInfo) => {
+          // for background, we want fixed name and path for referencing in extension manifest
+          if (chunkInfo.name === 'background') {
+            return 'background.js';
+          }
+          // for index page, use default output naming scheme
+          return 'assets/[name]-[hash].js';
+        }
+      }
     },
   },
 })

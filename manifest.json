@@ -3,8 +3,8 @@
     "name": "React Chrome Extension",
     "version": "1.0.0",
     "description": "A simple React app as a Chrome extension",
-    "action": {
-      "default_popup": "index.html"
-    },
-    "permissions": []
+    "action": {},
+    "background": {
+        "service_worker": "./background.js"
+    }
 }
