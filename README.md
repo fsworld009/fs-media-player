@@ -21,6 +21,24 @@ pnpm i --frozen-lockfile
 * https://medium.com/@josprima.id/setup-reactjs-typescript-project-with-vite-eslint-and-prettier-2024-e714f7daca1a
 
 
+## Known Issue
+
+### Tailwind Material compatibility
+
+As of now it only supports Tailwind@3 and React@18 but current stable version is
+Tailwind@4 and React@19 https://github.com/creativetimofficial/material-tailwind/blob/6f8c0ff/package.json
+
+It seems working with Tailwind@4 for most part for now but there's discussion
+https://github.com/creativetimofficial/material-tailwind/issues/955
+
+
+With react@19, correctly there's issue with TS type checking
+https://github.com/creativetimofficial/material-tailwind/issues/830
+Pending https://github.com/creativetimofficial/material-tailwind/pull/864
+
+Workaround for now https://github.com/creativetimofficial/material-tailwind/issues/379#issuecomment-2688527829
+https://github.com/creativetimofficial/material-tailwind/pull/864/files
+
 ## TODO / Discussion
 
 * Open new tab only once https://stackoverflow.com/questions/71918972/in-a-chrome-extension-detect-tab-already-open-and-switch-to-it-otherwise-crea
