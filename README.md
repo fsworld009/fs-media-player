@@ -39,6 +39,28 @@ Pending https://github.com/creativetimofficial/material-tailwind/pull/864
 Workaround for now https://github.com/creativetimofficial/material-tailwind/issues/379#issuecomment-2688527829
 https://github.com/creativetimofficial/material-tailwind/pull/864/files
 
+### Unable to inject Youtube iframe API in chrome extension
+
+```
+Refused to load the script 'https://www.youtube.com/iframe_api' because it violates the following Content Security Policy directive: "script-src 'self' 'wasm-unsafe-eval' 'inline-speculation-rules' http://localhost:* http://127.0.0.1:*". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+```
+
+"In Manifest V3, all of your extension's logic must be part of the extension package. You can no longer load and execute remotely hosted files." 
+https://stackoverflow.com/a/75196361
+
+
+
+Change policy, this only works in v2
+https://stackoverflow.com/a/68749937
+
+Note: Injecting extenal script to content page isn't allowed in the extension's page 
+   1. https://stackoverflow.com/a/63780515
+   2. https://stackoverflow.com/a/36645710 
+
+
+Looks like this project can't be done as a browser extension
+
+
 ## TODO / Discussion
 
 * Open new tab only once https://stackoverflow.com/questions/71918972/in-a-chrome-extension-detect-tab-already-open-and-switch-to-it-otherwise-crea
