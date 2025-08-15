@@ -21,4 +21,8 @@ export class SongService {
     const saved = await this.repository.save(song);
     return saved;
   }
+
+  async list() {
+    return this.repository.find();
+  }
 }

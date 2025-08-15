@@ -1,15 +1,15 @@
 import { useCallback, useEffect, useState, type ReactElement } from 'react';
 import Button from './components/Button';
+import { useQuery } from '@tanstack/react-query';
+import { listSongs, type Song } from './api/songs';
 
 function TestPlayer() {
-  const playlist = [
-    { id: 'tezCM90keoI', title: '【オリジナル曲】あなたへ/おまる【作曲/演奏】' },
-    { id: '_cmQ2Vophak', title: "朔栖まよ - 1st single 'Ignited Spirit'【Original MV】" },
-    {
-      id: 'eKERsFJegeQ',
-      title: '【3Dライブ映像】Bard～悠久の調べ～【#紫吹まゆ3dハーモニカコンサート 】',
-    },
-  ];
+  const songsQueryResult = useQuery({
+    queryKey: ['songs'],
+    queryFn: listSongs,
+  });
+
+  const playlist: Song[] = songsQueryResult.data || [];
 
   const [songIndex, setSongIndex] = useState(-1);
   // const [playerState, setPlayerState] = useState('');
@@ -64,7 +64,7 @@ function TestPlayer() {
           playerVars: { autoplay: 1 },
           width: '100%',
           height: '100%',
-          videoId: song.id,
+          videoId: song.sid,
           events: {
             onStateChange: onPlayerStateChange,
           },

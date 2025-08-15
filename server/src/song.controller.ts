@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { SongService } from './song.service';
 import { CreateSongDto } from './song.dto';
 
@@ -9,5 +9,11 @@ export class SongController {
   @Post()
   create(@Body() body: CreateSongDto) {
     return this.songService.create(body);
+  }
+
+  // TODO: Better list schema (page number, total, ..etc)
+  @Get()
+  list() {
+    return this.songService.list();
   }
 }

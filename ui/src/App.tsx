@@ -3,6 +3,9 @@
 // import viteLogo from '/vite.svg';
 import './App.css';
 import TestPlayer from './TestPlayer';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -28,9 +31,9 @@ function App() {
     //   <h1 className="text-3xl font-bold underline">Tailwindcss working</h1>
     //   <Button {...({} as React.ComponentProps<typeof Button>)}>Button</Button>
     // </>
-    <>
+    <QueryClientProvider client={queryClient}>
       <TestPlayer />
-    </>
+    </QueryClientProvider>
   );
 }
 
