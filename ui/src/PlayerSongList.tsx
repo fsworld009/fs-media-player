@@ -1,7 +1,13 @@
 import { type Song } from './api/songs';
 import Button from './components/Button';
 
-function SongList({ songs, onSelectSong }: { songs: Song[]; onSelectSong: (song: Song) => void }) {
+function PlayerSongList({
+  songs,
+  onSelectSong,
+}: {
+  songs: Song[];
+  onSelectSong: (song: Song) => void;
+}) {
   return (
     <div className="overflow-auto">
       <div className="flex flex-col">
@@ -17,4 +23,4 @@ function SongList({ songs, onSelectSong }: { songs: Song[]; onSelectSong: (song:
   );
 }
 
-export default SongList;
+export default PlayerSongList;

@@ -7,6 +7,7 @@ function Typography({
   color,
   children,
   className,
+  onClick,
 }: Partial<PropsWithChildren<ComponentProps<typeof MTTypography>>>) {
   return (
     <MTTypography
@@ -14,6 +15,7 @@ function Typography({
       variant={variant}
       color={color}
       className={className}
+      onClick={onClick}
       {...({} as ComponentProps<typeof MTTypography>)}
     >
       {children}

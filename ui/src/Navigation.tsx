@@ -13,6 +13,9 @@ function Navigation() {
           <Link to="/" className="mr-2">
             Home
           </Link>
+          <Link to="/songs" className="mr-2">
+            Songs
+          </Link>
           <Link to="/player" className="mr-2">
             Player
           </Link>

@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from 'react';
-import SongList from './SongList';
+import PlayerSongList from './PlayerSongList';
 import { useSongsList, type Song } from './api/songs';
 import YoutubePlayer from './YoutubePlayer';
 
@@ -20,7 +20,7 @@ function Player() {
         <YoutubePlayer song={song} onSongEnd={onSongEnd}></YoutubePlayer>
       </div>
       <div>
-        <SongList songs={songs} onSelectSong={setSong}></SongList>
+        <PlayerSongList songs={songs} onSelectSong={setSong}></PlayerSongList>
       </div>
     </div>
   );
