@@ -1,6 +1,13 @@
-import { Entity, Column, PrimaryGeneratedColumn, Unique } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  Unique,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
-@Entity()
+@Entity({ name: 'song' })
 @Unique(['sid', 'service'])
 export class SongEntity {
   @PrimaryGeneratedColumn('uuid')
@@ -17,4 +24,10 @@ export class SongEntity {
 
   @Column({ nullable: true })
   comment: string;
+
+  @CreateDateColumn({ name: 'created_at' })
+  createdAt: Date;
+
+  @UpdateDateColumn({ name: 'updated_at' })
+  updatedAt: Date;
 }

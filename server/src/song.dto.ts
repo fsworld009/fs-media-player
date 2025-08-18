@@ -14,4 +14,18 @@ export class CreateSongDto {
   @IsString()
   @IsNotEmpty()
   title: string;
+
+  @IsString()
+  @IsOptional()
+  comment: string = '';
+}
+
+export class UpdateSongDto {
+  @IsString()
+  @IsNotEmpty()
+  title: string;
+
+  @IsString()
+  @IsOptional()
+  comment: string = '';
 }
