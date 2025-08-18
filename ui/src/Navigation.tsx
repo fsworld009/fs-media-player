@@ -1,26 +1,23 @@
 import { Link } from '@tanstack/react-router';
 import Navbar from './components/Navbar';
+import Typography from './components/Typography';
 
 function Navigation() {
   return (
     <>
-      {/* <div className="h-[40px] max-w-full"> */}
-      <div className="fixed top-0 left-0 z-10 h-[60px] w-screen">
-        <Navbar className=" bg-white rounded-xl">
-          <div className="flex items-center justify-start p-1">
-            <span className="mr-4 cursor-pointer text-red-900 py-1.5 font-medium">
-              Media Player
-            </span>
-            <Link to="/" className="mr-2">
-              Home
-            </Link>
-            <Link to="/player" className="mr-2">
-              Player
-            </Link>
-          </div>
-        </Navbar>
-      </div>
-      {/* </div> */}
+      <Navbar className="sticky top-0 z-10 w-screen bg-white rounded-xl px-4 py-2">
+        <div className="flex items-center justify-start">
+          <Typography as="span" color="purple" className="mr-4 font-medium">
+            Media Player
+          </Typography>
+          <Link to="/" className="mr-2">
+            Home
+          </Link>
+          <Link to="/player" className="mr-2">
+            Player
+          </Link>
+        </div>
+      </Navbar>
     </>
   );
 }

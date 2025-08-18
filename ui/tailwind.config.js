@@ -2,7 +2,9 @@ import withMT from '@material-tailwind/react/utils/withMT';
 
 module.exports = withMT({
   purge: [],
-  darkMode: false, // or 'media' or 'class'
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  safelist: ['text-purple-500'],
+  darkMode: true, // or 'media' or 'class'
   theme: {
     extend: {},
   },

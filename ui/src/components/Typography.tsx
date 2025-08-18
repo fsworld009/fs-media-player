@@ -6,12 +6,14 @@ function Typography({
   variant,
   color,
   children,
+  className,
 }: Partial<PropsWithChildren<ComponentProps<typeof MTTypography>>>) {
   return (
     <MTTypography
       as={as}
       variant={variant}
       color={color}
+      className={className}
       {...({} as ComponentProps<typeof MTTypography>)}
     >
       {children}
