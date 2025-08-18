@@ -2,7 +2,7 @@
 // import reactLogo from './assets/react.svg';
 // import viteLogo from '/vite.svg';
 import './App.css';
-import TestPlayer from './TestPlayer';
+import Player from './Player';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const queryClient = new QueryClient();
@@ -32,7 +32,7 @@ function App() {
     //   <Button {...({} as React.ComponentProps<typeof Button>)}>Button</Button>
     // </>
     <QueryClientProvider client={queryClient}>
-      <TestPlayer />
+      <Player />
     </QueryClientProvider>
   );
 }
