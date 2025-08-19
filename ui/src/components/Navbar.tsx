@@ -3,13 +3,9 @@ import type { PropsWithChildren, ComponentProps } from 'react';
 
 function Navbar({
   children,
-  className,
+  ...rest
 }: Partial<PropsWithChildren<ComponentProps<typeof MTNavbar>>>) {
-  return (
-    <MTNavbar className={className} {...({} as ComponentProps<typeof MTNavbar>)}>
-      {children}
-    </MTNavbar>
-  );
+  return <MTNavbar {...(rest as ComponentProps<typeof MTNavbar>)}>{children}</MTNavbar>;
 }
 
 export default Navbar;

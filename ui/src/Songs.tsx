@@ -1,8 +1,9 @@
 import { useMemo } from 'react';
 import { useSongsList, type Song } from '@/api/songs';
-import SongTable from '@/SongTable'
+import SongTable from '@/SongTable';
 import Button from '@/components/Button';
 import type { ACTION } from '@/common/enums';
+import { Link } from '@tanstack/react-router';
 
 function Songs() {
   const songsQueryResult = useSongsList();
@@ -15,7 +16,9 @@ function Songs() {
   return (
     <>
       <div className="flex justify-start">
-        <Button className="mr-1">Create</Button>
+        <Link to="/songs/create">
+          <Button className="mr-1">Create</Button>
+        </Link>
       </div>
       <div className="mt-2">
         <SongTable songs={songs} onAction={onAction}></SongTable>

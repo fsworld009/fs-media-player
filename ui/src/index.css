@@ -68,3 +68,9 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* chrome: default outline affecting border color at least in form input */
+/* https://stackoverflow.com/a/62103854 */
+*,*:focus,*:hover{
+    outline:none;
+}

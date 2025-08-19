@@ -3,14 +3,9 @@ import type { PropsWithChildren, ComponentProps } from 'react';
 
 function Button({
   children,
-  onClick,
-  className,
+  ...rest
 }: Partial<PropsWithChildren<ComponentProps<typeof MTButton>>>) {
-  return (
-    <MTButton onClick={onClick} className={className} {...({} as ComponentProps<typeof MTButton>)}>
-      {children}
-    </MTButton>
-  );
+  return <MTButton {...(rest as ComponentProps<typeof MTButton>)}>{children}</MTButton>;
 }
 
 export default Button;

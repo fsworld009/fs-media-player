@@ -17,6 +17,7 @@ export class SongService {
     song.sid = body.sid;
     song.service = body.service;
     song.title = body.title;
+    song.comment = body.comment;
     // TODO: error handling
     const saved = await this.repository.save(song);
     return saved;
