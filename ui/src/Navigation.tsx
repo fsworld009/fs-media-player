@@ -8,7 +8,7 @@ function Navigation() {
       <Navbar className="sticky top-0 z-10 w-screen bg-white rounded-xl px-4 py-2">
         <div className="flex items-center justify-start">
           <Typography as="span" color="purple" className="mr-4 font-medium">
-            Media Player
+            FS Media Player
           </Typography>
           <Link to="/" className="mr-2">
             Home

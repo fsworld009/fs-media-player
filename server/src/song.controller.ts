@@ -1,6 +1,6 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, NotFoundException, Param, Post, Put } from '@nestjs/common';
 import { SongService } from './song.service';
-import { CreateSongDto } from './song.dto';
+import { CreateSongDto, UpdateSongDto } from './song.dto';
 
 @Controller()
 export class SongController {
@@ -15,5 +15,21 @@ export class SongController {
   @Get()
   list() {
     return this.songService.list();
+  }
+
+  @Get('/:id')
+  get(@Param('id') id: string) {
+    return this.songService.get(id);
+  }
+
+  @Put('/:id')
+  put(@Param('id') id: string, @Body() body: UpdateSongDto) {
+    return this.songService.update(id, body);
+  }
+
+  @Delete('/:id')
+  async delete(@Param('id') id: string) {
+    await this.songService.delete(id);
+    return '';
   }
 }

@@ -27,7 +27,7 @@ function SongTable({
       title: 'Created At',
     },
     {
-      dataKey: 'modifiedAt',
+      dataKey: 'updatedAt',
       title: 'Last Modified',
     },
   ];
@@ -74,8 +74,8 @@ function SongTable({
               <Typography
                 as="span"
                 variant="small"
-                color="blue-gray"
-                className="font-medium mr-1 cursor-pointer"
+                color="blue"
+                className="!text-blue-gray-500 font-medium mr-1 cursor-pointer"
                 onClick={() => onAction([song], ACTION.EDIT)}
               >
                 Edit

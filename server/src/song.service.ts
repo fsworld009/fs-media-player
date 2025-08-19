@@ -1,10 +1,11 @@
-import { Body, Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 // import { SongRepository } from './song.repository';
 import { SongEntity } from './song.entity';
-import { CreateSongDto } from './song.dto';
+import { CreateSongDto, UpdateSongDto } from './song.dto';
 
+// TODO: error handling
 @Injectable()
 export class SongService {
   constructor(
@@ -12,15 +13,42 @@ export class SongService {
     private repository: Repository<SongEntity>,
   ) {}
 
-  async create(@Body() body: CreateSongDto): Promise<SongEntity> {
+  async create(body: CreateSongDto): Promise<SongEntity> {
     const song = new SongEntity();
     song.sid = body.sid;
     song.service = body.service;
     song.title = body.title;
     song.comment = body.comment;
-    // TODO: error handling
     const saved = await this.repository.save(song);
     return saved;
+  }
+
+  async get(id: string) {
+    const song = await this.repository.findOne({
+      where: {
+        id,
+      },
+    });
+    if (!song) {
+      throw new NotFoundException();
+    }
+    return song;
+  }
+
+  async delete(id: string) {
+    const song = await this.get(id);
+    await this.repository.remove(song);
+  }
+
+  async update(id: string, updated: UpdateSongDto) {
+    const song = await this.get(id);
+    song.title = updated.title;
+    if (updated.comment === '') {
+      song.comment = null;
+    } else if (updated.comment) {
+      song.comment = updated.comment;
+    }
+    return this.repository.save(song);
   }
 
   async list() {
